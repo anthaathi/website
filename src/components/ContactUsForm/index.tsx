@@ -28,7 +28,7 @@ const inputOverwride: InputOverrides = {
 };
 
 export const ContactUsForm = () => {
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <div
@@ -37,18 +37,28 @@ export const ContactUsForm = () => {
         padding: '0 12px',
         margin: '0 auto',
         width: 'calc(100% - 24px)',
-        display: 'flex',
         alignContent: 'center',
         placeContent: 'center',
         flexWrap: 'wrap',
         flexGrow: 1,
         zIndex: 3,
+        [$theme.mediaQuery.medium]: {
+          display: 'flex',
+        },
+        [$theme.mediaQuery.large]: {
+          display: 'flex',
+        },
       })}
     >
       <div
         className={css({
           flexGrow: 1,
-          width: '60%',
+          [$theme.mediaQuery.medium]: {
+            width: '60%',
+          },
+          [$theme.mediaQuery.large]: {
+            width: '60%',
+          },
         })}
       >
         <HeadingMedium $style={{fontWeight: 600}} marginBottom="scale400">
@@ -172,7 +182,12 @@ export const ContactUsForm = () => {
           display: 'flex',
           flexDirection: 'column',
           placeContent: 'center',
-          width: '40%',
+          [$theme.mediaQuery.medium]: {
+            width: '40%',
+          },
+          [$theme.mediaQuery.large]: {
+            width: '40%',
+          },
         })}
       >
         <div
@@ -189,10 +204,7 @@ export const ContactUsForm = () => {
             Want to be part our team?
           </HeadingMedium>
 
-          <LabelMedium marginBottom="scale600">
-            ATC Global Ltd, Street 13B. Downtown Precinct Dubai, United Arab
-            Emirates
-          </LabelMedium>
+          <LabelMedium marginBottom="scale600">Kolhapur</LabelMedium>
 
           <StyledLink>Email: support@anthaathi.org</StyledLink>
         </div>

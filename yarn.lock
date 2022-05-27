@@ -338,6 +338,25 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@carbon/icon-helpers@^10.30.0-rc.0":
+  version "10.30.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.30.0.tgz#b22d3432dd6546de75fa69060419dce58b1992ae"
+  integrity sha512-K+wvv1H9ey/5L30QTZAd2r2UnoAfDABDT9Xv2e5GWstw+uK7HEnoog6etFt0/ADU7KKRGmxq9mkJFGykASzPRA==
+
+"@carbon/icons-react@^11.3.0":
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-11.3.0.tgz#ef5924ea75d5b79e74b906acfe2dd0ada650211e"
+  integrity sha512-7mh/uUvKFTbWXD9QzrWApXuPe27WvWCEqwIp6wtfZRfceQrdCAgMBryVIxkTUG75JhWIzp6pepFead3URRGefw==
+  dependencies:
+    "@carbon/icon-helpers" "^10.30.0-rc.0"
+    "@carbon/telemetry" "0.1.0"
+    prop-types "^15.7.2"
+
+"@carbon/telemetry@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@carbon/telemetry/-/telemetry-0.1.0.tgz#57b331cd5a855b4abbf55457456da8211624d879"
+  integrity sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==
+
 "@date-io/core@^2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@date-io/core/-/core-2.11.0.tgz#28580cda1c8228ab2c7ed6aee673ef0495f913e6"

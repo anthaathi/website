@@ -7,6 +7,13 @@ import {
   LabelSmall,
 } from 'baseui/typography';
 import {CompanyName} from '../../CompanyName';
+import {
+  ApplicationWeb,
+  ApplicationMobile,
+  ShoppingCatalog,
+  CloudServices,
+  EdtLoop,
+} from '@carbon/icons-react';
 
 export function Section2() {
   const [css, $theme] = useStyletron();
@@ -170,30 +177,35 @@ export function Section2() {
 const items = [
   {
     label: 'Web Development',
+    icon: ApplicationWeb,
     image: '/web1.png',
     content:
       'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
   },
   {
     label: 'Mobile Development',
+    icon: ApplicationMobile,
     image: '/phn.png',
     content:
       'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
   },
   {
     label: 'ECommerce Development',
+    icon: ShoppingCatalog,
     image: '/ecommerce.png',
     content:
       'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
   },
   {
     label: 'Cloud Services',
+    icon: CloudServices,
     image: '/cloud1.png',
     content:
       'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
   },
   {
     label: 'DevSecOps Services',
+    icon: EdtLoop,
     image: '/devops1.png',
     content:
       'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
@@ -286,7 +298,8 @@ function Item({value}) {
           transitionTimingFunction: 'ease',
         })}
       >
-        <img src={value.image} alt="" />
+        <value.icon size={48} color="#FFF" />
+        {/* <img src={value.image} alt="" /> */}
         <LabelMedium $style={{textAlign: 'center', marginTop: '12px'}}>
           {value.label}
         </LabelMedium>

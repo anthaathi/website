@@ -233,10 +233,10 @@ export function PageItem() {
           >
             Modernize business or company with Anthaathi.
           </HeadingLarge>
-          <LabelMedium $style={{width: '420px', maxWidth: '80vw'}}>
-            {/* VAPT safeguards against most of the known vulnerabilities and
-            exploits. */}
-          </LabelMedium>
+          {/* <LabelMedium $style={{width: '420px', maxWidth: '80vw'}}>
+            VAPT safeguards against most of the known vulnerabilities and
+            exploits.
+          </LabelMedium> */}
         </div>
 
         <div
@@ -251,17 +251,19 @@ export function PageItem() {
             className={css({
               width: '420px',
               maxWidth: '50vw',
-              marginBottom: '48px',
-              marginTop: '48px',
               [$theme.mediaQuery.small]: {
                 width: '220px',
-                marginTop: '48px',
+                marginBottom: '40px',
               },
               [$theme.mediaQuery.medium]: {
                 width: '420px',
+                marginTop: '25px',
+                marginBottom: '40px',
               },
-              [$theme.mediaQuery.small]: {
+              [$theme.mediaQuery.large]: {
                 width: '420px',
+                marginTop: '48px',
+                marginBottom: '48px',
               },
             })}
             draggable={false}

@@ -131,14 +131,10 @@ export const menuItems: {label: string; url: string}[] = [
     label: 'Services',
     url: '/',
   },
-  {
-    label: 'Research & Development',
-    url: '/',
-  },
-  {
-    label: 'About Us',
-    url: '/',
-  },
+  // {
+  //   label: 'About Us',
+  //   url: '/',
+  // },
   {label: 'Contact Us', url: '/contact-us'},
 ];
 
