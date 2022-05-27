@@ -109,10 +109,6 @@ const items = [
           >
             Anthaathi
           </LabelLarge>
-          {/* &nbsp;
-          <LabelLarge $style={{fontSize: '32px', fontWeight: 200}}>
-            Global
-          </LabelLarge> */}
         </div>
       );
     },

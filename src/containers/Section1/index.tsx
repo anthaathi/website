@@ -233,10 +233,6 @@ export function PageItem() {
           >
             Modernize business or company with Anthaathi.
           </HeadingLarge>
-          {/* <LabelMedium $style={{width: '420px', maxWidth: '80vw'}}>
-            VAPT safeguards against most of the known vulnerabilities and
-            exploits.
-          </LabelMedium> */}
         </div>
 
         <div

@@ -140,11 +140,11 @@ export function Section2() {
               placeContent: 'center',
               [$theme.mediaQuery.small]: {
                 width: '100%',
+                paddingTop: '4rem',
               },
               [$theme.mediaQuery.medium]: {
-                width: '50%',
+                width: '100%',
                 paddingTop: '4rem',
-                paddingBottom: '4rem',
               },
               [$theme.mediaQuery.large]: {
                 width: '50%',
@@ -180,14 +180,14 @@ const items = [
     icon: ApplicationWeb,
     image: '/web1.png',
     content:
-      'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+      'We do not just web design, but out-of-the box digital experiences that takes your business to the next level.',
   },
   {
     label: 'Mobile Development',
     icon: ApplicationMobile,
     image: '/phn.png',
     content:
-      'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+      'We offer a full cycle of application design, integration and management services. Whether it is a consumer oriented app or a transformative enterprise-class solution, the company leads the entire mobile app development process from ideation and concept to delivery.',
   },
   {
     label: 'ECommerce Development',
@@ -299,7 +299,6 @@ function Item({value}) {
         })}
       >
         <value.icon size={48} color="#FFF" />
-        {/* <img src={value.image} alt="" /> */}
         <LabelMedium $style={{textAlign: 'center', marginTop: '12px'}}>
           {value.label}
         </LabelMedium>
