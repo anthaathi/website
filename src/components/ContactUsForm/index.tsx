@@ -1,18 +1,23 @@
 import React from 'react';
-import {BaseProvider, LightTheme, useStyletron} from 'baseui';
+import {LightTheme, ThemeProvider, useStyletron} from 'baseui';
 import {FormControl} from 'baseui/form-control';
 import {Input, InputOverrides} from 'baseui/input';
-import {HeadingMedium, LabelLarge, LabelMedium} from 'baseui/typography';
+import {HeadingMedium, LabelMedium} from 'baseui/typography';
 import {Cell, Grid} from 'baseui/layout-grid';
 import {StyledLink} from 'baseui/link';
 import {Textarea} from 'baseui/textarea';
 import {Button, KIND} from 'baseui/button';
+import {expandBorderStyles} from 'baseui/styles';
 
-const inputOverwride: InputOverrides = {
+const inputOverride: InputOverrides = {
   Root: {
     style: {
       backgroundColor: 'transparent!important',
-      borderWidth: '1px',
+      ...expandBorderStyles({
+        borderWidth: '1px',
+        borderColor: '#FFF',
+        borderStyle: 'solid',
+      }),
     },
   },
   InputContainer: {
@@ -23,6 +28,7 @@ const inputOverwride: InputOverrides = {
   Input: {
     style: {
       color: '#FFF',
+      caretColor: '#FFF',
     },
   },
 };
@@ -33,7 +39,7 @@ export const ContactUsForm = () => {
   return (
     <div
       className={css({
-        maxWidth: '1200px',
+        maxWidth: '1400px',
         padding: '0 12px',
         margin: '0 auto',
         width: 'calc(100% - 24px)',
@@ -42,15 +48,16 @@ export const ContactUsForm = () => {
         flexWrap: 'wrap',
         flexGrow: 1,
         zIndex: 3,
-        [$theme.mediaQuery.medium]: {
-          display: 'flex',
-        },
+        display: 'flex',
+        flexDirection: 'column',
         [$theme.mediaQuery.large]: {
           display: 'flex',
+          flexDirection: 'row',
         },
       })}
     >
       <div
+        data-component="contact-us-form-section-1"
         className={css({
           flexGrow: 1,
           [$theme.mediaQuery.medium]: {
@@ -71,36 +78,36 @@ export const ContactUsForm = () => {
         </LabelMedium>
 
         <form className={css({width: '100%', marginTop: '2rem'})}>
-          <BaseProvider theme={LightTheme}>
+          <ThemeProvider theme={LightTheme}>
             <Grid gridMargins={0} gridMaxWidth={0}>
-              <Cell span={6}>
+              <Cell span={[12, 12, 6]}>
                 <FormControl
                   label="Full name"
                   htmlFor="fullName"
                   overrides={{Label: {style: {color: '#FFF'}}}}
                 >
-                  <Input id="fullName" overrides={inputOverwride} />
+                  <Input id="fullName" overrides={inputOverride} />
                 </FormControl>
               </Cell>
-              <Cell span={6}>
+              <Cell span={[12, 12, 6]}>
                 <FormControl
                   label="Company name"
                   htmlFor="companyName"
                   overrides={{Label: {style: {color: '#FFF'}}}}
                 >
-                  <Input id="companyName" overrides={inputOverwride} />
+                  <Input id="companyName" overrides={inputOverride} />
                 </FormControl>
               </Cell>
-              <Cell span={6}>
+              <Cell span={[12, 12, 6]}>
                 <FormControl
                   label="Email"
                   htmlFor="email"
                   overrides={{Label: {style: {color: '#FFF'}}}}
                 >
-                  <Input id="email" type="email" overrides={inputOverwride} />
+                  <Input id="email" type="email" overrides={inputOverride} />
                 </FormControl>
               </Cell>
-              <Cell span={6}>
+              <Cell span={[12, 12, 6]}>
                 <FormControl
                   label="Contact number"
                   htmlFor="contactNumber"
@@ -109,29 +116,29 @@ export const ContactUsForm = () => {
                   <Input
                     id="contactNumber"
                     type="tel"
-                    overrides={inputOverwride}
+                    overrides={inputOverride}
                   />
                 </FormControl>
               </Cell>
-              <Cell span={6}>
+              <Cell span={[12, 12, 6]}>
                 <FormControl
                   label="Job title"
                   htmlFor="jobTitle"
                   overrides={{Label: {style: {color: '#FFF'}}}}
                 >
-                  <Input id="jobTitle" overrides={inputOverwride} />
+                  <Input id="jobTitle" overrides={inputOverride} />
                 </FormControl>
               </Cell>
-              <Cell span={6}>
+              <Cell span={[12, 12, 6]}>
                 <FormControl
                   label="Subject"
                   htmlFor="subject"
                   overrides={{Label: {style: {color: '#FFF'}}}}
                 >
-                  <Input id="subject" overrides={inputOverwride} />
+                  <Input id="subject" overrides={inputOverride} />
                 </FormControl>
               </Cell>
-              <Cell span={12}>
+              <Cell span={[12, 12, 6]}>
                 <FormControl
                   label="Message"
                   htmlFor="message"
@@ -146,13 +153,18 @@ export const ContactUsForm = () => {
                       ['Root' as never]: {
                         style: {
                           backgroundColor: 'transparent!important',
-                          borderWidth: '1px',
+                          ...expandBorderStyles({
+                            borderWidth: '1px',
+                            borderColor: '#FFF',
+                            borderStyle: 'solid',
+                          }),
                         },
                       },
                       Input: {
                         style: {
                           color: '#FFF',
                           backgroundColor: 'transparent!important',
+                          caretColor: '#FFF',
                         },
                       },
                     }}
@@ -160,7 +172,7 @@ export const ContactUsForm = () => {
                 </FormControl>
               </Cell>
 
-              <Cell span={12}>
+              <Cell span={[12, 12, 6]}>
                 <Button
                   kind={KIND.secondary}
                   $style={{
@@ -174,10 +186,11 @@ export const ContactUsForm = () => {
                 </Button>
               </Cell>
             </Grid>
-          </BaseProvider>
+          </ThemeProvider>
         </form>
       </div>
       <div
+        data-component="contact-us-form-section-2"
         className={css({
           display: 'flex',
           flexDirection: 'column',
@@ -192,9 +205,11 @@ export const ContactUsForm = () => {
       >
         <div
           className={css({
-            paddingLeft: '4rem',
-            paddingRight: '4rem',
-            paddingBottom: '8rem',
+            [$theme.mediaQuery.large]: {
+              paddingLeft: '4rem',
+              paddingRight: '4rem',
+              paddingBottom: '8rem',
+            },
           })}
         >
           <HeadingMedium
@@ -203,8 +218,6 @@ export const ContactUsForm = () => {
           >
             Want to be part our team?
           </HeadingMedium>
-
-          <LabelMedium marginBottom="scale600">Kolhapur</LabelMedium>
 
           <StyledLink>Email: support@anthaathi.org</StyledLink>
         </div>

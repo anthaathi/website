@@ -36,13 +36,13 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
             crossOrigin=""
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap"
             rel="stylesheet"
           />
           <link rel="icon" href="/logo.png" />
-          <title>Anthaathi</title>
 
           <style
+            nonce="123"
             dangerouslySetInnerHTML={{
               __html: 'body, html { padding: 0; margin: 0; }',
             }}

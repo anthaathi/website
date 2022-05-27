@@ -1,12 +1,13 @@
 import {AppBar} from '@/components/AppBar';
-import {HeadingLarge, LabelMedium, LabelSmall} from 'baseui/typography';
+import {HeadingLarge, LabelSmall} from 'baseui/typography';
 import * as React from 'react';
 import {useEffect, useRef, useState} from 'react';
 import {useStyletron} from 'baseui';
 import {FullPageWithColor} from '@/components/FullPageWithColor';
+import Image from 'next/image';
 
 export function Section1() {
-  const [css, $theme] = useStyletron();
+  const [css] = useStyletron();
 
   const ref = useRef<HTMLDivElement[]>([]);
 
@@ -110,7 +111,7 @@ export function Section1() {
           <div
             className={css({
               display: 'flex',
-              maxWidth: '1200px',
+              maxWidth: '1400px',
               margin: '0 auto',
               alignItems: 'center',
             })}
@@ -195,7 +196,7 @@ export function PageItem() {
     <>
       <div
         className={css({
-          maxWidth: '1200px',
+          maxWidth: '1400px',
           padding: '0 12px',
           margin: '0 auto',
           width: 'calc(100% - 24px)',
@@ -241,9 +242,11 @@ export function PageItem() {
             [$theme.mediaQuery.large]: {display: 'block', marginTop: 0},
           })}
         >
-          <img
+          <Image
             src="/Hero-Img-01.png"
             alt=""
+            width="420px"
+            height="570px"
             className={css({
               width: '420px',
               maxWidth: '50vw',

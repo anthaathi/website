@@ -20,10 +20,11 @@ export function Section2() {
 
   return (
     <div
+      id="services"
       className={css({
         minHeight: '100vh',
         position: 'relative',
-        maxHeight: '1200px',
+        maxHeight: '1400px',
         width: '100%',
         overflow: 'hidden',
         [$theme.mediaQuery.medium]: {
@@ -58,7 +59,7 @@ export function Section2() {
           className={css({
             zIndex: 99,
             position: 'relative',
-            maxWidth: '1200px',
+            maxWidth: '1400px',
             margin: '0 auto',
             display: 'flex',
             minHeight: '100vh',
@@ -225,7 +226,7 @@ function Items() {
 function Item({value}) {
   const [css, $theme] = useStyletron();
   const [isVisible, setIsVisible] = useState(false);
-  const [animatedIsVisible, setAnimatedIsVisible] = useState(isVisible);
+  const [, setAnimatedIsVisible] = useState(isVisible);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;

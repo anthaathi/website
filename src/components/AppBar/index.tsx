@@ -5,10 +5,9 @@ import {Button, KIND, SHAPE} from 'baseui/button';
 import {Menu} from 'baseui/icon';
 import Link from 'next/link';
 import {StyledLink} from 'baseui/link';
-import {CloseIconSvg} from 'baseui/toast';
 
 export function AppBar() {
-  const [css, $theme] = useStyletron();
+  const [css] = useStyletron();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   return (
@@ -24,7 +23,7 @@ export function AppBar() {
         <div
           className={css({
             display: 'flex',
-            maxWidth: '1200px',
+            maxWidth: '1400px',
             margin: '0 auto',
             minHeight: '96px',
             alignItems: 'center',

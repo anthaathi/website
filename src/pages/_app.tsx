@@ -5,7 +5,7 @@ import {BaseProvider, createDarkTheme} from 'baseui';
 import {styletron} from '../styletron';
 
 const LightTheme = createDarkTheme({
-  primaryFontFamily: "'Titillium Web', sans-serif",
+  primaryFontFamily: "'Red Hat Display', sans-serif",
 });
 
 export default class MyApp extends App {

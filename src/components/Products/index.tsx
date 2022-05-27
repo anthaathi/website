@@ -8,7 +8,7 @@ export const Products = () => {
   return (
     <div
       className={css({
-        maxWidth: '1200px',
+        maxWidth: '1400px',
         padding: '0 12px',
         margin: '0 auto',
         width: 'calc(100% - 24px)',
