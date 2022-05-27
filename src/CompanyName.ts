@@ -1,1 +1,1 @@
-export const CompanyName = 'AFC Global';
+export const CompanyName = 'Anthaathi';
