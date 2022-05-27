@@ -5,6 +5,8 @@ import {useEffect, useRef, useState} from 'react';
 import {useStyletron} from 'baseui';
 import {FullPageWithColor} from '@/components/FullPageWithColor';
 import Image from 'next/image';
+import {Button} from 'baseui/button';
+import Link from 'next/link';
 
 export function Section1() {
   const [css] = useStyletron();
@@ -182,12 +184,7 @@ export function Section1() {
   );
 }
 
-export const PageItemList = [
-  <PageItem key={0} />,
-  <PageItem key={1} />,
-  <PageItem key={2} />,
-  <PageItem key={3} />,
-];
+export const PageItemList = [<PageItem key={0} />];
 
 export function PageItem() {
   const [css, $theme] = useStyletron();
@@ -208,7 +205,6 @@ export function PageItem() {
       >
         <div
           className={css({
-            flexGrow: 1,
             display: 'flex',
             flexDirection: 'column',
             placeContent: 'center',
@@ -219,8 +215,10 @@ export function PageItem() {
               fontWeight: 600,
               width: '620px',
               [$theme.mediaQuery.small]: {
-                width: '100%',
+                width: 'calc(100% - 48px)',
                 maxWidth: 'none',
+                marginLeft: '24px',
+                marginRight: '24px',
               },
               [$theme.mediaQuery.medium]: {
                 maxWidth: '620px',
@@ -238,35 +236,53 @@ export function PageItem() {
 
         <div
           className={css({
-            marginTop: '24px',
-            [$theme.mediaQuery.large]: {display: 'block', marginTop: 0},
+            [$theme.mediaQuery.large]: {display: 'none'},
           })}
         >
-          <Image
-            src="/Hero-Img-01.png"
-            alt=""
-            width="420px"
-            height="570px"
-            className={css({
-              width: '420px',
-              maxWidth: '50vw',
-              [$theme.mediaQuery.small]: {
-                width: '220px',
-                marginBottom: '40px',
-              },
-              [$theme.mediaQuery.medium]: {
+          <Link passHref={true} href="/contact-us">
+            <Button>Contact Us</Button>
+          </Link>
+        </div>
+
+        <div
+          className={css({
+            marginTop: '24px',
+            [$theme.mediaQuery.large]: {display: 'block', marginTop: 0},
+            [$theme.mediaQuery.small]: {
+              display: 'none',
+            },
+          })}
+        >
+          <div className={css({width: '420px', maxWidth: '40vh'})}>
+            <Image
+              src="/Hero-Img-01.png"
+              alt=""
+              width="100%"
+              height="100%"
+              layout="responsive"
+              objectFit="contain"
+              className={css({
                 width: '420px',
-                marginTop: '25px',
-                marginBottom: '40px',
-              },
-              [$theme.mediaQuery.large]: {
-                width: '420px',
-                marginTop: '48px',
-                marginBottom: '48px',
-              },
-            })}
-            draggable={false}
-          />
+                maxWidth: '50vw',
+                maxHeight: '50vh!important',
+                [$theme.mediaQuery.small]: {
+                  width: '220px',
+                  marginBottom: '40px',
+                },
+                [$theme.mediaQuery.medium]: {
+                  width: '420px',
+                  marginTop: '25px',
+                  marginBottom: '40px',
+                },
+                [$theme.mediaQuery.large]: {
+                  width: '420px',
+                  marginTop: '48px',
+                  marginBottom: '48px',
+                },
+              })}
+              draggable={false}
+            />
+          </div>
         </div>
       </div>
     </>

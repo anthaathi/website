@@ -263,11 +263,11 @@ function Item({value}) {
       })}
     >
       <div
-        onBlur={() => {
-          setIsVisible(false);
-        }}
         onFocus={() => {
           setIsVisible(true);
+        }}
+        onBlur={() => {
+          setIsVisible(false);
         }}
         onMouseOver={() => {
           setIsVisible(true);
@@ -275,6 +275,7 @@ function Item({value}) {
         onMouseOut={() => {
           setIsVisible(false);
         }}
+        tabIndex={0}
         className={css({
           width: 'calc(100% - 24px)',
           padding: '12px',
@@ -287,6 +288,18 @@ function Item({value}) {
           marginBottom: '2rem',
           [$theme.mediaQuery.large]: {
             ':hover': {
+              backgroundColor: '#0095D6',
+              padding: '48px',
+              margin: '-24px',
+              zIndex: 99,
+            },
+            ':active': {
+              backgroundColor: '#0095D6',
+              padding: '48px',
+              margin: '-24px',
+              zIndex: 99,
+            },
+            ':focus': {
               backgroundColor: '#0095D6',
               padding: '48px',
               margin: '-24px',
