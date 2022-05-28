@@ -12,7 +12,7 @@ export function Footer() {
       <div className={css({backgroundColor: '#151618'})}>
         <div
           className={css({
-            maxWidth: '1200px',
+            maxWidth: '1400px',
             margin: '0 auto',
             padding: '4rem',
             display: 'flex',
@@ -77,7 +77,7 @@ export function Footer() {
         })}
       >
         <div
-          className={css({maxWidth: '1200px', margin: '0 auto', width: '100%'})}
+          className={css({maxWidth: '1400px', margin: '0 auto', width: '100%'})}
         >
           <LabelMedium>
             Copyright &copy; 2022 - Anthaathi - All Rights Reserved
@@ -109,10 +109,6 @@ const items = [
           >
             Anthaathi
           </LabelLarge>
-          {/* &nbsp;
-          <LabelLarge $style={{fontSize: '32px', fontWeight: 200}}>
-            Global
-          </LabelLarge> */}
         </div>
       );
     },

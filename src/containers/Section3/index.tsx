@@ -2,6 +2,7 @@ import React from 'react';
 import {useStyletron} from 'baseui';
 import {HeadingMedium, LabelMedium, LabelSmall} from 'baseui/typography';
 import {Button} from 'baseui/button';
+import Image from 'next/image';
 
 export function Section3() {
   const [css, $theme] = useStyletron();
@@ -21,7 +22,7 @@ export function Section3() {
           paddingTop: '2rem',
           paddingLeft: '2rem',
           paddingRight: '2rem',
-          maxWidth: '1200px',
+          maxWidth: '1400px',
           margin: '0 auto',
         })}
       >
@@ -42,7 +43,9 @@ export function Section3() {
             },
           })}
         >
-          <img
+          <Image
+            height="420px"
+            width="596px"
             src="/BusinessMen.png"
             className={css({height: '420px', paddingTop: '2rem'})}
           />

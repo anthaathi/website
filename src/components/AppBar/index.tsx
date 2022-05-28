@@ -1,19 +1,39 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useStyletron} from 'baseui';
 import {LabelLarge} from 'baseui/typography';
 import {Button, KIND, SHAPE} from 'baseui/button';
 import {Menu} from 'baseui/icon';
 import Link from 'next/link';
 import {StyledLink} from 'baseui/link';
-import {CloseIconSvg} from 'baseui/toast';
+import {CompanyName} from 'CompanyName';
+import {Close} from '@carbon/icons-react';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
+  useEffect(() => {
+    if (!isOpenMenu) {
+      return;
+    }
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.keyCode === 27 || e.key === 'Escape') {
+        setIsOpenMenu(false);
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpenMenu]);
+
   return (
     <>
       <div
+        data-component="app-bar"
         className={css({
           minHeight: '96px',
           borderBottom: '1px solid rgba(255, 255, 255, .28)',
@@ -24,36 +44,34 @@ export function AppBar() {
         <div
           className={css({
             display: 'flex',
-            maxWidth: '1200px',
+            maxWidth: '1400px',
             margin: '0 auto',
             minHeight: '96px',
             alignItems: 'center',
             padding: '0 24px',
           })}
         >
-          <svg height="50" width="50">
-            <path d="250 174.64 299.5 216.1 250 257.55 250 310.26 344.16 231.4 344.16 200.8 250 121.93 250 174.64" />
-          </svg>
-
           <Link passHref={true} href={'/'}>
-            <LabelLarge
-              $style={{
-                letterSpacing: '0.64px',
-                fontSize: '24px',
-                cursor: 'pointer',
-              }}
-            >
-              Anthaathi
-            </LabelLarge>
+            <a href="" className={css({textDecoration: 'none'})}>
+              <LabelLarge
+                $style={{
+                  letterSpacing: '0.64px',
+                  fontSize: '24px',
+                  cursor: 'pointer',
+                }}
+              >
+                {CompanyName}
+              </LabelLarge>
+            </a>
           </Link>
-          {/* &nbsp;
-          <LabelLarge $style={{fontSize: '24px', fontWeight: 200}}>
-            Global
-          </LabelLarge> */}
           <AppBarMenu />
           <span className={css({flexGrow: 1})} />
 
-          <Button kind={KIND.minimal} onClick={() => setIsOpenMenu(true)}>
+          <Button
+            kind={KIND.tertiary}
+            onClick={() => setIsOpenMenu(true)}
+            $style={{[$theme.mediaQuery.large]: {display: 'none'}}}
+          >
             <Menu size={36} />
           </Button>
         </div>
@@ -61,10 +79,10 @@ export function AppBar() {
 
       <div
         className={css({
-          backgroundColor: 'rgba(19,22,92, 0.8)',
+          backgroundColor: 'rgba(19,22,92, 0.9)',
           opacity: isOpenMenu ? 1 : 0,
           pointerEvents: isOpenMenu ? 'inherit' : 'none',
-          backdropFilter: 'blur(6px)',
+          backdropFilter: 'blur(12px)',
           position: 'fixed',
           top: 0,
           bottom: 0,
@@ -95,6 +113,7 @@ export function AppBar() {
                     textDecoration: 'none',
                     fontSize: '24px',
                     marginBottom: '12px',
+                    textTransform: 'uppercase',
                   }}
                 >
                   {item.label}
@@ -114,7 +133,7 @@ export function AppBar() {
             }}
             onClick={() => setIsOpenMenu(false)}
           >
-            X
+            <Close />
           </Button>
         </div>
       </div>
@@ -124,19 +143,7 @@ export function AppBar() {
 
 export const menuItems: {label: string; url: string}[] = [
   {
-    label: 'Product',
-    url: '/product',
-  },
-  {
     label: 'Services',
-    url: '/',
-  },
-  {
-    label: 'Research & Development',
-    url: '/',
-  },
-  {
-    label: 'About Us',
     url: '/',
   },
   {label: 'Contact Us', url: '/contact-us'},
@@ -153,6 +160,7 @@ function AppBarMenu() {
         return (
           <Link passHref={true} href={item.url} key={index}>
             <StyledLink
+              tabIndex={0}
               $style={{
                 textDecoration: 'none',
                 cursor: 'pointer',
@@ -160,6 +168,7 @@ function AppBarMenu() {
                 paddingLeft: '12px',
                 fontWeight: 300,
                 minHeight: '96px',
+                textTransform: 'uppercase',
                 display: 'flex',
                 alignContent: 'center',
                 placeItems: 'center',

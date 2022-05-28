@@ -1,16 +1,26 @@
 import * as React from 'react';
 import {useStyletron} from 'baseui';
 
-export const FullPageWithColor = ({children}: {children: React.ReactNode}) => {
+export const FullPageWithColor = ({
+  children,
+  shouldHaveMinHeight = true,
+}: {
+  children: React.ReactNode;
+  shouldHaveMinHeight?: boolean;
+}) => {
   const [css] = useStyletron();
 
   return (
     <div
       className={css({
-        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
+        ...(shouldHaveMinHeight
+          ? {minHeight: '100vh'}
+          : {
+              minHeight: '100vh',
+            }),
       })}
     >
       <div

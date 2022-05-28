@@ -5,7 +5,7 @@ import {Server, Sheet} from 'styletron-engine-atomic';
 import {styletron} from '../styletron';
 
 class MyDocument extends Document<{stylesheets: Sheet[]}> {
-  static getInitialProps(props: any) {
+  static async getInitialProps(props: any) {
     // eslint-disable-next-line react/display-name
     const page = props.renderPage((App: any) => (props: any) => (
       <StyletronProvider value={styletron}>
@@ -13,7 +13,8 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
       </StyletronProvider>
     ));
     const stylesheets = (styletron as Server).getStylesheets() || [];
-    return {...page, stylesheets};
+    const initialProps = await Document.getInitialProps(props);
+    return {...page, stylesheets, ...initialProps};
   }
 
   render() {
@@ -22,7 +23,7 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
         <Head>
           {this.props.stylesheets.map((sheet, i) => (
             <style
-              className="_css_hydrate_"
+              className="_styletron_hydrate_"
               dangerouslySetInnerHTML={{__html: sheet.css}}
               media={sheet.attrs.media}
               data-hydrate={sheet.attrs['data-hydrate']}
@@ -36,13 +37,13 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
             crossOrigin=""
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap"
             rel="stylesheet"
           />
           <link rel="icon" href="/logo.png" />
-          <title>Anthaathi</title>
 
           <style
+            nonce="123"
             dangerouslySetInnerHTML={{
               __html: 'body, html { padding: 0; margin: 0; }',
             }}

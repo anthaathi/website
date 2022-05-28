@@ -3,20 +3,25 @@ import App from 'next/app';
 import {Provider as StyletronProvider} from 'styletron-react';
 import {BaseProvider, createDarkTheme} from 'baseui';
 import {styletron} from '../styletron';
+import {Footer} from '../containers/Footer';
 
 const LightTheme = createDarkTheme({
-  primaryFontFamily: "'Titillium Web', sans-serif",
+  primaryFontFamily: "'Red Hat Display', sans-serif",
 });
 
 export default class MyApp extends App {
   render() {
     const {Component, pageProps} = this.props;
+
     return (
-      <StyletronProvider value={styletron}>
-        <BaseProvider theme={LightTheme}>
-          <Component {...pageProps} />
-        </BaseProvider>
-      </StyletronProvider>
+      <>
+        <StyletronProvider value={styletron}>
+          <BaseProvider theme={LightTheme}>
+            <Component {...pageProps} />
+            <Footer />
+          </BaseProvider>
+        </StyletronProvider>
+      </>
     );
   }
 }

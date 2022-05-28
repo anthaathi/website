@@ -1,22 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useStyletron} from 'baseui';
 import {
   HeadingMedium,
+  HeadingSmall,
+  HeadingXXLarge,
   LabelLarge,
   LabelMedium,
-  LabelSmall,
 } from 'baseui/typography';
 import {CompanyName} from '../../CompanyName';
+import {
+  ApplicationMobile,
+  ApplicationWeb,
+  CloudServices,
+  EdtLoop,
+  ShoppingCatalog,
+} from '@carbon/icons-react';
+import {Button} from 'baseui/button';
+import {Block} from 'baseui/block';
 
 export function Section2() {
   const [css, $theme] = useStyletron();
 
   return (
     <div
+      id="services"
       className={css({
-        minHeight: '100vh',
-        position: 'relative',
-        maxHeight: '1200px',
+        maxHeight: '1400px',
         width: '100%',
         overflow: 'hidden',
         [$theme.mediaQuery.medium]: {
@@ -25,37 +34,28 @@ export function Section2() {
         [$theme.mediaQuery.small]: {
           maxHeight: 'none',
         },
+        backgroundImage: 'url(/Blue-BG.jpg)',
+        backgroundRepeat: 'none',
+        backgroundSize: 'cover',
       })}
     >
       <div
         className={css({
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          backgroundImage: 'url(/Blue-BG.jpg)',
-          backgroundRepeat: 'none',
-          backgroundSize: 'cover',
-        })}
-      />
-
-      <div
-        className={css({
-          display: 'flex',
-          flexDirection: 'row',
-          padding: '0 2rem',
+          background: 'rgba(19, 22, 92, 1)',
+          [$theme.mediaQuery.large]: {
+            background:
+              'linear-gradient(to left, rgba(19, 22, 92, 0.1) 50%, rgba(19, 22, 92, 0.9) 50%)',
+          },
         })}
       >
         <div
           className={css({
-            zIndex: 99,
-            position: 'relative',
-            maxWidth: '1200px',
-            margin: '0 auto',
             display: 'flex',
-            minHeight: '100vh',
-            width: '100%',
+            padding: '0 24px',
+            maxWidth: '1400px',
+            position: 'relative',
+            margin: '0 auto',
+            height: '100%',
             flexDirection: 'column',
             [$theme.mediaQuery.large]: {
               flexDirection: 'row',
@@ -64,103 +64,38 @@ export function Section2() {
         >
           <div
             className={css({
-              width: '100%',
               display: 'flex',
-              flexDirection: 'column',
               placeContent: 'center',
-              paddingTop: '4rem',
+              flexDirection: 'column',
+              width: '100%',
               [$theme.mediaQuery.large]: {
-                paddingTop: '0',
-                paddingRight: '6rem',
-                width: 'calc(50% - 6rem)',
-                paddingBottom: '0',
+                width: '50%',
+                minHeight: '100vh',
               },
             })}
           >
-            <LabelSmall $style={{color: '#F5B640'}}>OUR PURPOSE</LabelSmall>
-            <HeadingMedium>
-              To solve real-world cybersecurity problems using people,
-              processes, and technology.
-            </HeadingMedium>
+            <div className={css({paddingTop: '24px', paddingBottom: '48px'})}>
+              <LabelLarge $style={{color: '#F5B640'}}>WHAT WE DO</LabelLarge>
+              <HeadingXXLarge marginBottom="scale200" marginTop="scale200">
+                Our Services
+              </HeadingXXLarge>
 
-            <div>
-              <LabelLarge>PEOPLE</LabelLarge>
-              <LabelMedium
-                $style={{fontWeight: 300, lineHeight: 1.4, opacity: 0.9}}
-                marginTop="scale600"
+              <HeadingSmall
+                marginTop="scale200"
+                color="rgba(255,255,255,.8)"
+                maxWidth={['100%', '100%', '55%']}
               >
-                {CompanyName} provides training to Cybersecurity Professionals,
-                corporate companies, government firms, public and private
-                sectors, multinational organizations, and others. {CompanyName}{' '}
-                has also delivered a 6-week hands-on training to 140+
-                professionals on Red Team Assessment.
-              </LabelMedium>
-              <LabelLarge
-                $style={{fontWeight: 300, lineHeight: 1.4, opacity: 0.9}}
-                marginTop="scale600"
-              >
-                PROCESS
-              </LabelLarge>
-              <LabelMedium
-                $style={{fontWeight: 300, lineHeight: 1.4, opacity: 0.9}}
-                marginTop="scale600"
-              >
-                {CompanyName} offers GAP Assessment with its methodology
-                tailored individually for clients to improve their overall
-                security posture. Non-Technology-based companies, Companies that
-                have recently acquired funding, potential startups, and
-                companies that were recently part of the cyberattack, want to
-                improve the security but don’t know where to start. This GAP
-                Assessment identifies the key problems that require immediate
-                attention.
-              </LabelMedium>
-              <LabelLarge marginTop="scale600">TECHNOLOGY</LabelLarge>{' '}
-              <LabelMedium marginTop="scale600">
                 {CompanyName} has its own Advanced Phishing Simulation tool
                 called Hooked for phishing simulation offering both a SAAS and
                 on-premises model.
-              </LabelMedium>
+              </HeadingSmall>
+
+              <Block marginTop="scale1000">
+                <Button>See Success Stories</Button>
+              </Block>
             </div>
           </div>
-          <div
-            className={css({
-              width: '50%',
-              display: 'flex',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              position: 'relative',
-              paddingBottom: '4rem',
-              placeContent: 'center',
-              [$theme.mediaQuery.small]: {
-                width: '100%',
-              },
-              [$theme.mediaQuery.medium]: {
-                width: '50%',
-                paddingTop: '4rem',
-                paddingBottom: '4rem',
-              },
-              [$theme.mediaQuery.large]: {
-                width: '50%',
-                paddingTop: '4rem',
-              },
-            })}
-          >
-            <div
-              className={css({
-                position: 'absolute',
-                background: 'rgba(24,2,85, 0.8)',
-                top: 0,
-                right: '-820px',
-                bottom: 0,
-                left: 0,
-                display: 'none',
-                [$theme.mediaQuery.large]: {
-                  display: 'inherit',
-                },
-              })}
-            />
-            <Items />
-          </div>
+          <Items />
         </div>
       </div>
     </div>
@@ -170,30 +105,35 @@ export function Section2() {
 const items = [
   {
     label: 'Web Development',
+    icon: ApplicationWeb,
     image: '/web1.png',
     content:
-      'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+      'We do not just web design, but out-of-the box digital experiences that takes your business to the next level.',
   },
   {
     label: 'Mobile Development',
+    icon: ApplicationMobile,
     image: '/phn.png',
     content:
-      'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+      'We offer a full cycle of application design, integration and management services. Whether it is a consumer oriented app or a transformative enterprise-class solution, the company leads the entire mobile app development process from ideation and concept to delivery.',
   },
   {
     label: 'ECommerce Development',
+    icon: ShoppingCatalog,
     image: '/ecommerce.png',
     content:
       'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
   },
   {
     label: 'Cloud Services',
+    icon: CloudServices,
     image: '/cloud1.png',
     content:
       'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
   },
   {
     label: 'DevSecOps Services',
+    icon: EdtLoop,
     image: '/devops1.png',
     content:
       'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
@@ -201,108 +141,88 @@ const items = [
 ];
 
 function Items() {
-  return (
-    <>
-      {items.map((value, index) => {
-        return <Item key={index} value={value} />;
-      })}
-    </>
-  );
-}
-
-function Item({value}) {
   const [css, $theme] = useStyletron();
-  const [isVisible, setIsVisible] = useState(false);
-  const [animatedIsVisible, setAnimatedIsVisible] = useState(isVisible);
-
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    if (!isVisible) {
-      timeout = setTimeout(() => {
-        setAnimatedIsVisible(isVisible);
-      }, 100);
-    } else {
-      setAnimatedIsVisible(isVisible);
-    }
-
-    return () => {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-    };
-  }, [isVisible]);
 
   return (
     <div
       className={css({
-        position: 'relative',
-        width: '50%',
-        [$theme.mediaQuery.small]: {
-          width: '100%',
-        },
-        [$theme.mediaQuery.medium]: {
-          width: '50%',
-        },
+        display: 'grid',
+        gridTemplateColumns: '1fr',
         [$theme.mediaQuery.large]: {
+          gridTemplateColumns: '1fr 1fr',
           width: '50%',
-          height: '160px',
         },
+        width: '100%',
       })}
     >
-      <div
-        onBlur={() => {
-          setIsVisible(false);
-        }}
-        onFocus={() => {
-          setIsVisible(true);
-        }}
-        onMouseOver={() => {
-          setIsVisible(true);
-        }}
-        onMouseOut={() => {
-          setIsVisible(false);
-        }}
-        className={css({
-          width: 'calc(100% - 24px)',
-          padding: '12px',
-          display: 'flex',
-          placeItems: 'center',
-          placeContent: 'center',
-          flexDirection: 'column',
-          cursor: 'pointer',
-          userSelect: 'none',
-          marginBottom: '2rem',
-          [$theme.mediaQuery.large]: {
-            ':hover': {
-              backgroundColor: '#0095D6',
-              padding: '48px',
-              margin: '-24px',
-              zIndex: 99,
-            },
-            position: 'absolute',
-          },
-          transitionProperty: 'all',
-          transitionDuration: '.1s',
-          transitionTimingFunction: 'ease',
-        })}
-      >
-        <img src={value.image} alt="" />
-        <LabelMedium $style={{textAlign: 'center', marginTop: '12px'}}>
-          {value.label}
-        </LabelMedium>
-        <LabelSmall
-          $style={{
-            overflow: 'hidden',
-            transitionProperty: 'all',
-            transitionDuration: '.1s',
-            transitionTimingFunction: 'ease',
-            maxHeight: isVisible ? '220px' : 0,
-            marginTop: '12px',
-          }}
-        >
-          {value.content}
-        </LabelSmall>
-      </div>
+      <style jsx>{`
+        .items-wrapper:hover > .item {
+          max-height: 240px;
+        }
+      `}</style>
+      {items.map((value, index) => {
+        return (
+          <div
+            key={index}
+            className={
+              css({
+                border: '1px solid rgb(255,255,255,.2)',
+                display: 'flex',
+                alignContent: 'center',
+                placeContent: 'center',
+                placeItems: 'center',
+                flexDirection: 'column',
+                cursor: 'pointer',
+                transitionProperty: 'all',
+                transitionDuration: '.2s',
+                transitionTimingFunction: 'ease',
+                ':hover': {
+                  backgroundColor: '#0095D6',
+                },
+              }) + ' items-wrapper'
+            }
+          >
+            <value.icon
+              size={54}
+              color="#FFF"
+              className={css({paddingTop: '24px', paddingBottom: '24px'})}
+            />
+            <HeadingMedium
+              marginTop="scale200"
+              color="rgba(255,255,255,.9)"
+              marginBottom="0"
+              maxWidth="80%"
+              $style={{
+                textAlign: 'center',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              {value.label}
+            </HeadingMedium>
+            <div className="item">
+              <LabelMedium
+                marginLeft="scale600"
+                marginRight="scale600"
+                marginTop="scale200"
+                color="rgba(255,255,255,.8)"
+                marginBottom="scale600"
+                $style={{
+                  transitionProperty: 'all',
+                  transitionDuration: '.1s',
+                  transitionTimingFunction: 'ease',
+                  [$theme.mediaQuery.large]: {
+                    maxHeight: 0,
+                  },
+                  overflow: 'hidden',
+                }}
+              >
+                {value.content}
+              </LabelMedium>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

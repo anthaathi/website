@@ -1,6 +1,6 @@
 import React from 'react';
 import {useStyletron} from 'baseui';
-import {HeadingLarge, HeadingMedium} from 'baseui/typography';
+import {HeadingMedium} from 'baseui/typography';
 
 export function Section4() {
   const [css] = useStyletron();
