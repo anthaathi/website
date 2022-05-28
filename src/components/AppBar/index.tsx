@@ -1,18 +1,39 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useStyletron} from 'baseui';
 import {LabelLarge} from 'baseui/typography';
 import {Button, KIND, SHAPE} from 'baseui/button';
 import {Menu} from 'baseui/icon';
 import Link from 'next/link';
 import {StyledLink} from 'baseui/link';
+import {CompanyName} from 'CompanyName';
+import {Close} from '@carbon/icons-react';
 
 export function AppBar() {
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  useEffect(() => {
+    if (!isOpenMenu) {
+      return;
+    }
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.keyCode === 27 || e.key === 'Escape') {
+        setIsOpenMenu(false);
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpenMenu]);
 
   return (
     <>
       <div
+        data-component="app-bar"
         className={css({
           minHeight: '96px',
           borderBottom: '1px solid rgba(255, 255, 255, .28)',
@@ -30,40 +51,27 @@ export function AppBar() {
             padding: '0 24px',
           })}
         >
-          {/* <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            className="ae"
-          >
-            <g id="Layer_2" data-name="Layer 2">
-              <g id="Layer_1-2" data-name="Layer 1">
-                <rect className="cls-1" width="20" height="20"></rect>
-                <polygon
-                  className="af"
-                  points="250 174.64 299.5 216.1 250 257.55 250 310.26 344.16 231.4 344.16 200.8 250 121.93 250 174.64"
-                ></polygon>
-                <polygon
-                  className="af"
-                  points="250 242.45 200.5 283.9 250 325.36 250 378.07 155.84 299.2 155.84 268.6 250 189.74 250 242.45"
-                ></polygon>
-              </g>
-            </g>
-          </svg> */}
           <Link passHref={true} href={'/'}>
-            <LabelLarge
-              $style={{
-                letterSpacing: '0.64px',
-                fontSize: '24px',
-                cursor: 'pointer',
-              }}
-            >
-              Anthaathi
-            </LabelLarge>
+            <a href="" className={css({textDecoration: 'none'})}>
+              <LabelLarge
+                $style={{
+                  letterSpacing: '0.64px',
+                  fontSize: '24px',
+                  cursor: 'pointer',
+                }}
+              >
+                {CompanyName}
+              </LabelLarge>
+            </a>
           </Link>
           <AppBarMenu />
           <span className={css({flexGrow: 1})} />
 
-          <Button kind={KIND.minimal} onClick={() => setIsOpenMenu(true)}>
+          <Button
+            kind={KIND.tertiary}
+            onClick={() => setIsOpenMenu(true)}
+            $style={{[$theme.mediaQuery.large]: {display: 'none'}}}
+          >
             <Menu size={36} />
           </Button>
         </div>
@@ -71,10 +79,10 @@ export function AppBar() {
 
       <div
         className={css({
-          backgroundColor: 'rgba(19,22,92, 0.8)',
+          backgroundColor: 'rgba(19,22,92, 0.9)',
           opacity: isOpenMenu ? 1 : 0,
           pointerEvents: isOpenMenu ? 'inherit' : 'none',
-          backdropFilter: 'blur(6px)',
+          backdropFilter: 'blur(12px)',
           position: 'fixed',
           top: 0,
           bottom: 0,
@@ -105,6 +113,7 @@ export function AppBar() {
                     textDecoration: 'none',
                     fontSize: '24px',
                     marginBottom: '12px',
+                    textTransform: 'uppercase',
                   }}
                 >
                   {item.label}
@@ -124,7 +133,7 @@ export function AppBar() {
             }}
             onClick={() => setIsOpenMenu(false)}
           >
-            X
+            <Close />
           </Button>
         </div>
       </div>
@@ -134,17 +143,9 @@ export function AppBar() {
 
 export const menuItems: {label: string; url: string}[] = [
   {
-    label: 'Product',
-    url: '/product',
-  },
-  {
     label: 'Services',
     url: '/',
   },
-  // {
-  //   label: 'About Us',
-  //   url: '/',
-  // },
   {label: 'Contact Us', url: '/contact-us'},
 ];
 
@@ -159,6 +160,7 @@ function AppBarMenu() {
         return (
           <Link passHref={true} href={item.url} key={index}>
             <StyledLink
+              tabIndex={0}
               $style={{
                 textDecoration: 'none',
                 cursor: 'pointer',
@@ -166,6 +168,7 @@ function AppBarMenu() {
                 paddingLeft: '12px',
                 fontWeight: 300,
                 minHeight: '96px',
+                textTransform: 'uppercase',
                 display: 'flex',
                 alignContent: 'center',
                 placeItems: 'center',

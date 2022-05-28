@@ -7,7 +7,6 @@ const Index: React.FC = () => {
   return (
     <FullPageWithColor>
       <AppBar />
-
       <ContactUsForm />
     </FullPageWithColor>
   );

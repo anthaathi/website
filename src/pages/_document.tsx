@@ -5,7 +5,7 @@ import {Server, Sheet} from 'styletron-engine-atomic';
 import {styletron} from '../styletron';
 
 class MyDocument extends Document<{stylesheets: Sheet[]}> {
-  static getInitialProps(props: any) {
+  static async getInitialProps(props: any) {
     // eslint-disable-next-line react/display-name
     const page = props.renderPage((App: any) => (props: any) => (
       <StyletronProvider value={styletron}>
@@ -13,7 +13,8 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
       </StyletronProvider>
     ));
     const stylesheets = (styletron as Server).getStylesheets() || [];
-    return {...page, stylesheets};
+    const initialProps = await Document.getInitialProps(props);
+    return {...page, stylesheets, ...initialProps};
   }
 
   render() {
@@ -22,7 +23,7 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
         <Head>
           {this.props.stylesheets.map((sheet, i) => (
             <style
-              className="_css_hydrate_"
+              className="_styletron_hydrate_"
               dangerouslySetInnerHTML={{__html: sheet.css}}
               media={sheet.attrs.media}
               data-hydrate={sheet.attrs['data-hydrate']}
