@@ -260,7 +260,7 @@ function NextPageNavigator({title}: {title?: React.ReactNode}) {
 export const PageItemList = [
   <PageItem
     miniTitle={`Welcome to ${CompanyName}`}
-    title={`Development, DevSecOps, AI, and more.`}
+    title={`Development, Cybersecurity, AI, and more.`}
     subTitle={`How we escalate technology and security for the digital age.`}
     key={0}
     action={<NextPageNavigator />}
