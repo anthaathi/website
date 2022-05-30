@@ -311,7 +311,15 @@ export function PageItem({
       <div
         className={css({
           maxWidth: '1400px',
-          padding: '0 12px',
+          [$theme.mediaQuery.small]: {
+            padding: '0 12px',
+          },
+          [$theme.mediaQuery.medium]: {
+            padding: '0 24px',
+          },
+          [$theme.mediaQuery.large]: {
+            padding: '0 24px',
+          },
           margin: '0 auto',
           width: 'calc(100% - 24px)',
           display: 'flex',
