@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Document, {Head, Html, Main, NextScript} from 'next/document';
-import {Provider as StyletronProvider} from 'styletron-react';
-import {Server, Sheet} from 'styletron-engine-atomic';
-import {styletron} from '../styletron';
+import * as React from "react";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import { Provider as StyletronProvider } from "styletron-react";
+import { Server, Sheet } from "styletron-engine-atomic";
+import { styletron } from "../styletron";
 
-class MyDocument extends Document<{stylesheets: Sheet[]}> {
+class MyDocument extends Document<{ stylesheets: Sheet[] }> {
   static async getInitialProps(props: any) {
     // eslint-disable-next-line react/display-name
     const page = props.renderPage((App: any) => (props: any) => (
@@ -14,7 +14,7 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
     ));
     const stylesheets = (styletron as Server).getStylesheets() || [];
     const initialProps = await Document.getInitialProps(props);
-    return {...page, stylesheets, ...initialProps};
+    return { ...page, stylesheets, ...initialProps };
   }
 
   render() {
@@ -24,9 +24,9 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className="_styletron_hydrate_"
-              dangerouslySetInnerHTML={{__html: sheet.css}}
+              dangerouslySetInnerHTML={{ __html: sheet.css }}
               media={sheet.attrs.media}
-              data-hydrate={sheet.attrs['data-hydrate']}
+              data-hydrate={sheet.attrs["data-hydrate"]}
               key={i}
             />
           ))}
@@ -45,7 +45,7 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
           <style
             nonce="123"
             dangerouslySetInnerHTML={{
-              __html: 'body, html { padding: 0; margin: 0; }',
+              __html: "body, html { padding: 0; margin: 0; }",
             }}
           />
         </Head>

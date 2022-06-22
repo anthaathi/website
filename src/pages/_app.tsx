@@ -1,9 +1,9 @@
-import React from 'react';
-import App from 'next/app';
-import {Provider as StyletronProvider} from 'styletron-react';
-import {BaseProvider, createDarkTheme} from 'baseui';
-import {styletron} from '../styletron';
-import {Footer} from '../containers/Footer';
+import React from "react";
+import App from "next/app";
+import { Provider as StyletronProvider } from "styletron-react";
+import { BaseProvider, createDarkTheme } from "baseui";
+import { styletron } from "../styletron";
+import { Footer } from "../containers/Footer";
 
 const LightTheme = createDarkTheme({
   primaryFontFamily: "'Red Hat Display', sans-serif",
@@ -11,7 +11,7 @@ const LightTheme = createDarkTheme({
 
 export default class MyApp extends App {
   render() {
-    const {Component, pageProps} = this.props;
+    const { Component, pageProps } = this.props;
 
     return (
       <>

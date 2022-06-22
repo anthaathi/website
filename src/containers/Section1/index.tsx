@@ -1,24 +1,24 @@
-import {AppBar} from '@/components/AppBar';
+import { AppBar } from "@/components/AppBar";
 import {
   HeadingSmall,
   HeadingXXLarge,
   LabelLarge,
   LabelMedium,
   LabelSmall,
-} from 'baseui/typography';
-import * as React from 'react';
-import {useCallback, useContext, useEffect, useRef, useState} from 'react';
-import {useStyletron} from 'baseui';
-import {FullPageWithColor} from '@/components/FullPageWithColor';
-import Image from 'next/image';
-import {Button, SHAPE, SIZE} from 'baseui/button';
-import Link from 'next/link';
-import {CompanyName} from '../../CompanyName';
-import {PlayFilledAlt} from '@carbon/icons-react';
-import {Block} from 'baseui/block';
+} from "baseui/typography";
+import * as React from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useStyletron } from "baseui";
+import { FullPageWithColor } from "@/components/FullPageWithColor";
+import Image from "next/image";
+import { Button, SHAPE, SIZE } from "baseui/button";
+import Link from "next/link";
+import { CompanyName } from "../../CompanyName";
+import { PlayFilledAlt } from "@carbon/icons-react";
+import { Block } from "baseui/block";
 
 export const SectionChange = React.createContext<[() => void, () => void]>(
-  [] as never,
+  [] as never
 );
 
 export function Section1() {
@@ -32,19 +32,19 @@ export function Section1() {
   const [isSelected, setIsSelected] = useState(0);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return null;
     }
 
     ref.current[isSelected].scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'nearest',
+      behavior: "smooth",
+      block: "nearest",
+      inline: "nearest",
     });
   }, [isSelected]);
 
   useEffect(() => {
-    if (typeof document === 'undefined') {
+    if (typeof document === "undefined") {
       return;
     }
 
@@ -52,15 +52,15 @@ export function Section1() {
       setIsMoving(document.documentElement.scrollTop < 96);
     }
 
-    document.addEventListener('scroll', onScroll);
+    document.addEventListener("scroll", onScroll);
 
     return () => {
-      document.removeEventListener('scroll', onScroll);
+      document.removeEventListener("scroll", onScroll);
     };
   }, []);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return;
     }
 
@@ -112,7 +112,7 @@ export function Section1() {
       <FullPageWithColor shouldHaveMinHeight={false}>
         <div
           className={css({
-            position: 'absolute',
+            position: "absolute",
             left: 0,
             right: 0,
             top: 0,
@@ -125,7 +125,11 @@ export function Section1() {
             loop
             muted
             playsInline
-            className={css({width: '100%', height: '100%', objectFit: 'cover'})}
+            className={css({
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            })}
           >
             <source src="/Particle - 5187.mp4" type="video/mp4" />
             <source src="/Particle - 5187.webm" type="video/webm" />
@@ -136,51 +140,51 @@ export function Section1() {
 
         <div
           className={css({
-            position: 'relative',
+            position: "relative",
             zIndex: 3,
             flexGrow: 1,
-            display: 'flex',
+            display: "flex",
           })}
         >
           <div
             className={css({
-              position: 'absolute',
-              bottom: '4rem',
-              left: '1rem',
+              position: "absolute",
+              bottom: "4rem",
+              left: "1rem",
               right: 0,
             })}
           >
             <div
               className={css({
-                display: 'flex',
-                maxWidth: '1400px',
-                margin: '0 auto',
-                alignItems: 'center',
+                display: "flex",
+                maxWidth: "1400px",
+                margin: "0 auto",
+                alignItems: "center",
               })}
             >
               {PageItemList.map((res, index) => {
                 return (
                   <React.Fragment key={index}>
                     <LabelSmall
-                      $style={{letterSpacing: '-0.32px', cursor: 'pointer'}}
+                      $style={{ letterSpacing: "-0.32px", cursor: "pointer" }}
                       onClick={() => {
                         setIsSelected(index);
                       }}
                     >
-                      {(index + 1).toString().padStart(2, '0')}
+                      {(index + 1).toString().padStart(2, "0")}
                     </LabelSmall>
 
                     <div
                       className={css({
-                        display: 'block',
-                        padding: '1px',
-                        marginLeft: '12px',
-                        marginRight: '12px',
-                        width: isSelected === index ? '18px' : 0,
-                        backgroundColor: '#FFF',
-                        transitionProperty: 'all',
-                        transitionTimingFunction: 'ease',
-                        transitionDuration: '.3s',
+                        display: "block",
+                        padding: "1px",
+                        marginLeft: "12px",
+                        marginRight: "12px",
+                        width: isSelected === index ? "18px" : 0,
+                        backgroundColor: "#FFF",
+                        transitionProperty: "all",
+                        transitionTimingFunction: "ease",
+                        transitionDuration: ".3s",
                       })}
                     />
                   </React.Fragment>
@@ -192,11 +196,11 @@ export function Section1() {
           <div
             className={css({
               flexGrow: 1,
-              overflow: 'hidden',
-              flexFlow: 'row nowrap',
-              scrollSnapType: 'x mandatory',
-              overflowY: 'hidden',
-              display: 'flex',
+              overflow: "hidden",
+              flexFlow: "row nowrap",
+              scrollSnapType: "x mandatory",
+              overflowY: "hidden",
+              display: "flex",
             })}
           >
             {PageItemList.map((PageI, index) => {
@@ -207,11 +211,11 @@ export function Section1() {
                     return (ref.current[index] = el);
                   }}
                   className={css({
-                    width: '100vw',
+                    width: "100vw",
                     flexShrink: 0,
-                    display: 'flex',
-                    alignContent: 'center',
-                    placeContent: 'center',
+                    display: "flex",
+                    alignContent: "center",
+                    placeContent: "center",
                   })}
                 >
                   {PageI}
@@ -225,7 +229,7 @@ export function Section1() {
   );
 }
 
-function NextPageNavigator({title}: {title?: React.ReactNode}) {
+function NextPageNavigator({ title }: { title?: React.ReactNode }) {
   const [css] = useStyletron();
   const [, next] = useContext(SectionChange);
 
@@ -233,25 +237,25 @@ function NextPageNavigator({title}: {title?: React.ReactNode}) {
     <Block marginTop="scale400" display="flex" alignItems="center">
       <div>
         <Button shape={SHAPE.circle} size={SIZE.large} onClick={() => next()}>
-          <PlayFilledAlt size={32} className={css({color: '#F5B640'})} />
+          <PlayFilledAlt size={32} className={css({ color: "#F5B640" })} />
         </Button>
       </div>
 
-      <span className={css({width: '24px'})} />
+      <span className={css({ width: "24px" })} />
 
       <div
         className={css({
-          height: '2px',
-          width: '20vw',
-          maxWidth: '200px',
-          backgroundColor: 'rgba(255,255,255, .3)',
+          height: "2px",
+          width: "20vw",
+          maxWidth: "200px",
+          backgroundColor: "rgba(255,255,255, .3)",
         })}
       ></div>
 
-      <span className={css({width: '24px'})} />
+      <span className={css({ width: "24px" })} />
 
-      <LabelMedium $style={{color: 'rgba(255,255,255,.7)'}}>
-        {title ?? 'See how we help our clients'}
+      <LabelMedium $style={{ color: "rgba(255,255,255,.7)" }}>
+        {title ?? "See how we help our clients"}
       </LabelMedium>
     </Block>
   );
@@ -310,34 +314,34 @@ export function PageItem({
     <>
       <div
         className={css({
-          maxWidth: '1400px',
+          maxWidth: "1400px",
           [$theme.mediaQuery.small]: {
-            padding: '0 12px',
+            padding: "0 12px",
           },
           [$theme.mediaQuery.medium]: {
-            padding: '0 24px',
+            padding: "0 24px",
           },
           [$theme.mediaQuery.large]: {
-            padding: '0 24px',
+            padding: "0 24px",
           },
-          margin: '0 auto',
-          width: 'calc(100% - 24px)',
-          display: 'flex',
-          alignContent: 'center',
-          placeContent: 'center',
-          flexWrap: 'wrap',
+          margin: "0 auto",
+          width: "calc(100% - 24px)",
+          display: "flex",
+          alignContent: "center",
+          placeContent: "center",
+          flexWrap: "wrap",
         })}
       >
         <div
           className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            placeContent: 'center',
+            display: "flex",
+            flexDirection: "column",
+            placeContent: "center",
             flexGrow: 1,
             [$theme.mediaQuery.small]: {
-              maxWidth: 'none',
-              marginLeft: '12px',
-              marginRight: '12px',
+              maxWidth: "none",
+              marginLeft: "12px",
+              marginRight: "12px",
             },
             [$theme.mediaQuery.medium]: {
               marginLeft: 0,
@@ -351,8 +355,8 @@ export function PageItem({
         >
           <LabelLarge
             $style={{
-              color: '#F5B640',
-              textTransform: 'uppercase',
+              color: "#F5B640",
+              textTransform: "uppercase",
             }}
           >
             {miniTitle}
@@ -362,18 +366,18 @@ export function PageItem({
             marginBottom="scale200"
             $style={{
               fontWeight: 600,
-              width: '620px',
+              width: "620px",
               [$theme.mediaQuery.small]: {
-                width: 'calc(100% - 48px)',
-                maxWidth: 'none',
+                width: "calc(100% - 48px)",
+                maxWidth: "none",
               },
               [$theme.mediaQuery.medium]: {
-                maxWidth: '620px',
-                minWidth: '320px',
+                maxWidth: "620px",
+                minWidth: "320px",
               },
               [$theme.mediaQuery.large]: {
-                maxWidth: '620px',
-                minWidth: '320px',
+                maxWidth: "620px",
+                minWidth: "320px",
               },
             }}
           >
@@ -393,14 +397,14 @@ export function PageItem({
 
         <div
           className={css({
-            marginTop: '24px',
-            [$theme.mediaQuery.large]: {display: 'block', marginTop: 0},
+            marginTop: "24px",
+            [$theme.mediaQuery.large]: { display: "block", marginTop: 0 },
             [$theme.mediaQuery.small]: {
-              display: 'none',
+              display: "none",
             },
           })}
         >
-          <div className={css({width: '420px', maxWidth: '40vh'})}>
+          <div className={css({ width: "420px", maxWidth: "40vh" })}>
             <Image
               src="/Hero-Img-01.png"
               alt=""
@@ -409,22 +413,22 @@ export function PageItem({
               layout="responsive"
               objectFit="contain"
               className={css({
-                width: '420px',
-                maxWidth: '50vw',
-                maxHeight: '50vh!important',
+                width: "420px",
+                maxWidth: "50vw",
+                maxHeight: "50vh!important",
                 [$theme.mediaQuery.small]: {
-                  width: '220px',
-                  marginBottom: '40px',
+                  width: "220px",
+                  marginBottom: "40px",
                 },
                 [$theme.mediaQuery.medium]: {
-                  width: '420px',
-                  marginTop: '25px',
-                  marginBottom: '40px',
+                  width: "420px",
+                  marginTop: "25px",
+                  marginBottom: "40px",
                 },
                 [$theme.mediaQuery.large]: {
-                  width: '420px',
-                  marginTop: '48px',
-                  marginBottom: '48px',
+                  width: "420px",
+                  marginTop: "48px",
+                  marginBottom: "48px",
                 },
               })}
               draggable={false}
