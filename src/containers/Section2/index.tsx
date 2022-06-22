@@ -14,7 +14,7 @@ import {
   CloudServices,
   EdtLoop,
   ShoppingCatalog,
-  AppConnectivity,
+  DataEnrichmentAdd,
 } from "@carbon/icons-react";
 import { Button } from "baseui/button";
 import { Block } from "baseui/block";
@@ -137,7 +137,7 @@ const items: {
   },
   {
     label: "Data-Analytics Engineering",
-    icon: AppConnectivity,
+    icon: DataEnrichmentAdd,
     content: "",
   },
 ];
