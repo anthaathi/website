@@ -136,7 +136,7 @@ const items: {
     content: "",
   },
   {
-    label: "Data-Analytics engineering",
+    label: "Data-Analytics Engineering",
     icon: AppConnectivity,
     content: "",
   },
