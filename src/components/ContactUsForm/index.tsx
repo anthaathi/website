@@ -77,7 +77,11 @@ export const ContactUsForm = () => {
           needs.
         </LabelMedium>
 
-        <form className={css({ width: "100%", marginTop: "2rem" })} action="https://formsubmit.co/ad949d5ab912cadd3ceca0ab76679ec6" method="POST">
+        <form
+          className={css({ width: "100%", marginTop: "2rem" })}
+          action="https://formsubmit.co/ad949d5ab912cadd3ceca0ab76679ec6"
+          method="POST"
+        >
           <ThemeProvider theme={LightTheme}>
             <Grid gridMargins={0} gridMaxWidth={0}>
               <Cell span={[12, 12, 6]}>
@@ -86,7 +90,11 @@ export const ContactUsForm = () => {
                   htmlFor="fullName"
                   overrides={{ Label: { style: { color: "#FFF" } } }}
                 >
-                  <Input name="fulLName" id="fullName" overrides={inputOverride} />
+                  <Input
+                    name="fulLName"
+                    id="fullName"
+                    overrides={inputOverride}
+                  />
                 </FormControl>
               </Cell>
               <Cell span={[12, 12, 6]}>
@@ -95,7 +103,11 @@ export const ContactUsForm = () => {
                   htmlFor="companyName"
                   overrides={{ Label: { style: { color: "#FFF" } } }}
                 >
-                  <Input id="companyName" name="companyName" overrides={inputOverride} />
+                  <Input
+                    id="companyName"
+                    name="companyName"
+                    overrides={inputOverride}
+                  />
                 </FormControl>
               </Cell>
               <Cell span={[12, 12, 6]}>
@@ -104,7 +116,12 @@ export const ContactUsForm = () => {
                   htmlFor="email"
                   overrides={{ Label: { style: { color: "#FFF" } } }}
                 >
-                  <Input id="email" name="email" type="email" overrides={inputOverride} />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    overrides={inputOverride}
+                  />
                 </FormControl>
               </Cell>
               <Cell span={[12, 12, 6]}>
@@ -127,7 +144,11 @@ export const ContactUsForm = () => {
                   htmlFor="jobTitle"
                   overrides={{ Label: { style: { color: "#FFF" } } }}
                 >
-                  <Input name="jobTitle" id="jobTitle" overrides={inputOverride} />
+                  <Input
+                    name="jobTitle"
+                    id="jobTitle"
+                    overrides={inputOverride}
+                  />
                 </FormControl>
               </Cell>
               <Cell span={[12, 12, 6]}>
@@ -136,7 +157,11 @@ export const ContactUsForm = () => {
                   htmlFor="subject"
                   overrides={{ Label: { style: { color: "#FFF" } } }}
                 >
-                  <Input id="subject" name="subject" overrides={inputOverride} />
+                  <Input
+                    id="subject"
+                    name="subject"
+                    overrides={inputOverride}
+                  />
                 </FormControl>
               </Cell>
               <Cell span={[12, 12, 6]}>
