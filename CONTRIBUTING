@@ -1,0 +1,9 @@
+# Contributing Guidelines
+
+## Pre Requisite
+
+- [ ] [Node](https://nodejs.org)
+
+## Setup
+
+Install packages using `yarn` and you can run the website locally using `yarn dev`.
