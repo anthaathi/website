@@ -43,12 +43,6 @@ export function Section3() {
             },
           })}
         >
-          <Image
-            height="420px"
-            width="596px"
-            src="/BusinessMen.png"
-            className={css({ height: "420px", paddingTop: "2rem" })}
-          />
         </div>
 
         <div
